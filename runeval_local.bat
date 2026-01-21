@@ -1,0 +1,1 @@
+uv run python scripts/run_evaluation.py --backend ollama --base-url http://192.168.25.202:11434 --model llava:7b --splits synthetic --tasks D,R,VR
