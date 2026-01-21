@@ -7,6 +7,10 @@ import os
 import sys
 
 import rich_click as click
+from rich.console import Console
+from rich.logging import RichHandler
+from rich.table import Table
+from rich.panel import Panel
 
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -14,14 +18,17 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from evaluation.config import EvaluationConfig
 from evaluation.evaluator import SalBenchEvaluator
 
+console = Console()
+
 
 def setup_logging(verbose: bool):
-    """Configure logging."""
+    """Configure logging with rich colorized output."""
     level = logging.DEBUG if verbose else logging.INFO
     logging.basicConfig(
         level=level,
-        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-        handlers=[logging.StreamHandler()],
+        format="%(message)s",
+        datefmt="[%X]",
+        handlers=[RichHandler(console=console, rich_tracebacks=True, show_path=False)],
     )
 
 
@@ -185,35 +192,41 @@ def main(
         timeout_seconds=timeout,
     )
 
-    logger.info("Configuration:")
-    logger.info(f"  Backend: {config.backend}")
-    logger.info(f"  Base URL: {config.base_url}")
-    logger.info(f"  Model: {config.model_name}")
-    logger.info(f"  Dataset: {config.dataset_name}")
-    logger.info(f"  Splits: {config.splits}")
-    logger.info(f"  Tasks: {config.task_types}")
-    logger.info(f"  Shots: {config.num_shots}")
-    logger.info(f"  Samples: {config.num_samples or 'all'}")
+    # Display configuration with rich table
+    config_table = Table(show_header=False, box=None, padding=(0, 2))
+    config_table.add_column("Key", style="cyan")
+    config_table.add_column("Value", style="white")
+    config_table.add_row("Backend", config.backend)
+    config_table.add_row("Base URL", config.base_url)
+    config_table.add_row("Model", f"[bold]{config.model_name}[/bold]")
+    config_table.add_row("Dataset", config.dataset_name)
+    config_table.add_row("Splits", ", ".join(config.splits))
+    config_table.add_row("Tasks", ", ".join(config.task_types))
+    config_table.add_row("Shots", str(config.num_shots))
+    config_table.add_row("Samples", str(config.num_samples) if config.num_samples else "all")
+    console.print(Panel(config_table, title="[bold cyan]Configuration", border_style="cyan"))
 
     # Run evaluation
     evaluator = SalBenchEvaluator(config)
 
     try:
         report = asyncio.run(evaluator.run_evaluation())
-        logger.info("Evaluation completed successfully")
 
-        # Print leaderboard row
+        # Print leaderboard row with rich
         row = report["leaderboard_row"]
-        print("\nLeaderboard Row:")
-        print("-" * 50)
+        lb_table = Table(show_header=False, box=None, padding=(0, 2))
+        lb_table.add_column("Key", style="cyan")
+        lb_table.add_column("Value", style="yellow")
         for key, value in row.items():
-            print(f"  {key}: {value}")
+            lb_table.add_row(key, str(value))
+        console.print(Panel(lb_table, title="[bold yellow]Leaderboard Row", border_style="yellow"))
 
     except KeyboardInterrupt:
-        logger.info("Evaluation interrupted by user")
+        console.print("\n[yellow]Evaluation interrupted by user[/yellow]")
         sys.exit(1)
     except Exception as e:
-        logger.exception(f"Evaluation failed: {e}")
+        console.print(f"\n[bold red]Evaluation failed:[/bold red] {e}")
+        logger.exception("Evaluation failed")
         sys.exit(1)
 
 
