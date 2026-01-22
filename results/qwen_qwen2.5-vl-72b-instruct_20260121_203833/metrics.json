@@ -1,0 +1,65 @@
+{
+  "config": {
+    "model": "qwen/qwen2.5-vl-72b-instruct",
+    "backend": "openrouter",
+    "dataset": "salbench-vlm/salbench",
+    "splits": [
+      "synthetic"
+    ],
+    "tasks": [
+      "D",
+      "R",
+      "VR"
+    ],
+    "num_shots": 0,
+    "num_samples": null
+  },
+  "usage": {
+    "elapsed_seconds": 7101.5,
+    "total_requests": 7767,
+    "failed_requests": 0,
+    "input_tokens": 11277075,
+    "output_tokens": 16545,
+    "total_tokens": 11293620,
+    "estimated_cost_usd": 1.7015
+  },
+  "leaderboard_row": {
+    "Model": "qwen/qwen2.5-vl-72b-instruct",
+    "Shot": 0,
+    "Detection_SYN": 67.0,
+    "Referring_SYN": 88.7,
+    "VisualRef_SYN": 78.6
+  },
+  "detailed_metrics": {
+    "synthetic": {
+      "D": {
+        "total_samples": 2589,
+        "successful_samples": 2589,
+        "success_rate": 100.0,
+        "exact_match": 67.0,
+        "precision": 67.0,
+        "recall": 67.0,
+        "f1": 67.0
+      },
+      "R": {
+        "total_samples": 2589,
+        "successful_samples": 2589,
+        "success_rate": 100.0,
+        "exact_match": 88.7,
+        "precision": 88.7,
+        "recall": 88.7,
+        "f1": 88.7
+      },
+      "VR": {
+        "total_samples": 2589,
+        "successful_samples": 2589,
+        "success_rate": 100.0,
+        "exact_match": 78.6,
+        "precision": 78.6,
+        "recall": 78.6,
+        "f1": 78.6
+      }
+    }
+  },
+  "timestamp": "2026-01-21T20:38:33.059693"
+}

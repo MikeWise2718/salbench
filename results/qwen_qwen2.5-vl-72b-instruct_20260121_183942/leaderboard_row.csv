@@ -1,0 +1,2 @@
+Model,Shot,Detection_SYN,Referring_SYN,VisualRef_SYN
+qwen/qwen2.5-vl-72b-instruct,0,70.0,90.0,100.0

@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+
+# IDE
+.claude/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Results - track summaries, ignore large raw response files
+results/**/raw_responses.json
+
+# OS
+.DS_Store
+Thumbs.db

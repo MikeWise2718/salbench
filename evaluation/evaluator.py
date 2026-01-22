@@ -33,8 +33,9 @@ console = Console()
 # OpenRouter pricing per 1M tokens (approximate, varies by model)
 OPENROUTER_PRICING = {
     # Format: "model_pattern": (input_cost_per_1m, output_cost_per_1m)
-    "qwen/qwen2-vl-72b": (0.40, 0.40),
-    "qwen/qwen2-vl-7b": (0.10, 0.10),
+    "qwen/qwen2.5-vl-72b": (0.15, 0.60),
+    "qwen/qwen2.5-vl-7b": (0.10, 0.10),
+    "qwen/qwen2-vl": (0.15, 0.60),
     "google/gemini-flash": (0.075, 0.30),
     "google/gemini-pro": (1.25, 5.00),
     "anthropic/claude-3": (3.00, 15.00),

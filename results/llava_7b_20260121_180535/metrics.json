@@ -1,0 +1,42 @@
+{
+  "config": {
+    "model": "llava:7b",
+    "backend": "ollama",
+    "dataset": "salbench-vlm/salbench",
+    "splits": [
+      "synthetic"
+    ],
+    "tasks": [
+      "D"
+    ],
+    "num_shots": 0,
+    "num_samples": 2
+  },
+  "usage": {
+    "elapsed_seconds": 34.7,
+    "total_requests": 2,
+    "failed_requests": 2,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "total_tokens": 0
+  },
+  "leaderboard_row": {
+    "Model": "llava:7b",
+    "Shot": 0,
+    "Detection_SYN": 0.0
+  },
+  "detailed_metrics": {
+    "synthetic": {
+      "D": {
+        "total_samples": 2,
+        "successful_samples": 0,
+        "success_rate": 0.0,
+        "exact_match": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    }
+  },
+  "timestamp": "2026-01-21T18:05:35.104152"
+}

@@ -1,0 +1,65 @@
+{
+  "config": {
+    "model": "openai/gpt-4o",
+    "backend": "openrouter",
+    "dataset": "salbench-vlm/salbench",
+    "splits": [
+      "synthetic"
+    ],
+    "tasks": [
+      "D",
+      "R",
+      "VR"
+    ],
+    "num_shots": 0,
+    "num_samples": 10
+  },
+  "usage": {
+    "elapsed_seconds": 51.9,
+    "total_requests": 30,
+    "failed_requests": 0,
+    "input_tokens": 24995,
+    "output_tokens": 30,
+    "total_tokens": 25025,
+    "estimated_cost_usd": 0.0628
+  },
+  "leaderboard_row": {
+    "Model": "openai/gpt-4o",
+    "Shot": 0,
+    "Detection_SYN": 80.0,
+    "Referring_SYN": 90.0,
+    "VisualRef_SYN": 80.0
+  },
+  "detailed_metrics": {
+    "synthetic": {
+      "D": {
+        "total_samples": 10,
+        "successful_samples": 10,
+        "success_rate": 100.0,
+        "exact_match": 80.0,
+        "precision": 80.0,
+        "recall": 80.0,
+        "f1": 80.0
+      },
+      "R": {
+        "total_samples": 10,
+        "successful_samples": 10,
+        "success_rate": 100.0,
+        "exact_match": 90.0,
+        "precision": 90.0,
+        "recall": 90.0,
+        "f1": 90.0
+      },
+      "VR": {
+        "total_samples": 10,
+        "successful_samples": 10,
+        "success_rate": 100.0,
+        "exact_match": 80.0,
+        "precision": 80.0,
+        "recall": 80.0,
+        "f1": 80.0
+      }
+    }
+  },
+  "timestamp": "2026-01-22T09:34:32.870542"
+}

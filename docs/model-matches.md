@@ -8,8 +8,8 @@ Models benchmarked by the TII UAE team in the SalBench paper, with their best ma
 |-------------|--------|--------------|------------------|
 | **GPT-4o** | - | N/A | `openai/gpt-4o` |
 | **Claude-sonnet** | - | N/A | `anthropic/claude-3.5-sonnet` |
-| **Qwen2-VL-72B** | 72B | N/A (too large) | `qwen/qwen2-vl-72b-instruct` |
-| **Qwen2-VL-7B** | 7B | `qwen2-vl:7b` | `qwen/qwen2-vl-7b-instruct` |
+| **Qwen2-VL-72B** | 72B | N/A (too large) | `qwen/qwen2.5-vl-72b-instruct` |
+| **Qwen2-VL-7B** | 7B | `qwen2-vl:7b` | `qwen/qwen2.5-vl-7b-instruct` |
 | **Qwen2-VL-1.5B** | 1.5B | `qwen2-vl:2b` | N/A |
 | **NVLM-D-72B** | 72B | N/A | N/A |
 | **Molmo-72B** | 72B | N/A | N/A |
@@ -52,7 +52,7 @@ Best options for local evaluation:
 
 Best options for API-based evaluation:
 
-- `qwen/qwen2-vl-72b-instruct` - Top open-source performer
+- `qwen/qwen2.5-vl-72b-instruct` - Top open-source performer
 - `openai/gpt-4o` - Best overall in paper
 - `anthropic/claude-3.5-sonnet` - Strong on natural images
 - `meta-llama/llama-3.2-11b-vision-instruct` - Good balance
@@ -61,8 +61,8 @@ Best options for API-based evaluation:
 
 | Model | Input (per 1M tokens) | Output (per 1M tokens) |
 |-------|----------------------|------------------------|
-| `qwen/qwen2-vl-72b-instruct` | $0.15 | $0.60 |
-| `qwen/qwen2-vl-7b-instruct` | $0.10 | $0.10 |
+| `qwen/qwen2.5-vl-72b-instruct` | $0.15 | $0.60 |
+| `qwen/qwen2.5-vl-7b-instruct` | $0.10 | $0.10 |
 | `openai/gpt-4o` | $3.00 - $5.00 | $10.00 - $15.00 |
 | `anthropic/claude-3.5-sonnet` | $3.00 | $15.00 |
 | `meta-llama/llama-3.2-11b-vision-instruct` | $0.055 | $0.055 |
@@ -74,7 +74,7 @@ Assuming ~2K input tokens + 100 output tokens per sample (image + prompt + respo
 
 | Model | Est. Cost | Performance (SYN) | Value |
 |-------|-----------|-------------------|-------|
-| `qwen/qwen2-vl-72b-instruct` | ~$0.36 | 88.8% | Best |
+| `qwen/qwen2.5-vl-72b-instruct` | ~$0.36 | 88.8% | Best |
 | `meta-llama/llama-3.2-11b-vision-instruct` | ~$0.12 | 48.7% | Good |
 | `openai/gpt-4o` | ~$7-11 | 89.2% | Expensive |
 | `anthropic/claude-3.5-sonnet` | ~$7.50 | 86.7% | Expensive |

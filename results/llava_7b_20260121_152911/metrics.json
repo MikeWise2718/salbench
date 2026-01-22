@@ -1,0 +1,64 @@
+{
+  "config": {
+    "model": "llava:7b",
+    "backend": "ollama",
+    "dataset": "salbench-vlm/salbench",
+    "splits": [
+      "synthetic"
+    ],
+    "tasks": [
+      "D",
+      "R",
+      "VR"
+    ],
+    "num_shots": 0,
+    "num_samples": null
+  },
+  "usage": {
+    "elapsed_seconds": 1546.8,
+    "total_requests": 7767,
+    "failed_requests": 0,
+    "input_tokens": 5115843,
+    "output_tokens": 23385,
+    "total_tokens": 5139228
+  },
+  "leaderboard_row": {
+    "Model": "llava:7b",
+    "Shot": 0,
+    "Detection_SYN": 36.1,
+    "Referring_SYN": 37.7,
+    "VisualRef_SYN": 41.1
+  },
+  "detailed_metrics": {
+    "synthetic": {
+      "D": {
+        "total_samples": 2589,
+        "successful_samples": 2589,
+        "success_rate": 100.0,
+        "exact_match": 36.1,
+        "precision": 36.1,
+        "recall": 36.1,
+        "f1": 36.1
+      },
+      "R": {
+        "total_samples": 2589,
+        "successful_samples": 2589,
+        "success_rate": 100.0,
+        "exact_match": 37.7,
+        "precision": 37.7,
+        "recall": 37.7,
+        "f1": 37.7
+      },
+      "VR": {
+        "total_samples": 2589,
+        "successful_samples": 2589,
+        "success_rate": 100.0,
+        "exact_match": 41.1,
+        "precision": 41.1,
+        "recall": 41.1,
+        "f1": 41.1
+      }
+    }
+  },
+  "timestamp": "2026-01-21T15:29:11.952095"
+}

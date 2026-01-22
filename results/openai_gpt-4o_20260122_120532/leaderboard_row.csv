@@ -1,0 +1,2 @@
+Model,Shot,Detection_SYN,Referring_SYN,VisualRef_SYN
+openai/gpt-4o,0,86.3,86.7,76.3

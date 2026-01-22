@@ -1,0 +1,2 @@
+Model,Shot,Detection_SYN,Referring_SYN,VisualRef_SYN
+anthropic/claude-3.5-sonnet,0,65.0,70.0,50.0
