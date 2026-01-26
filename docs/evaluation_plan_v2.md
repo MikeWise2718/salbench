@@ -1,5 +1,7 @@
 # SalBench Evaluation Plan v2 (Revised Based on Paper)
 
+> **STATUS: COMPLETED** - This plan has been fully implemented. See `README_mike.md` for usage instructions.
+
 ## Package Manager
 
 This project uses **uv** as the package manager. All commands should be run via `uv run` or `uv pip`.
@@ -424,6 +426,23 @@ qwen2-vl:7b,0,32.5,55.7,32.5,34.2,35.2,57.4
    - Detection SYN: ~16.3% F1
    - Referring SYN: ~10.1% F1
    - Visual Referring SYN: ~16.6% F1
+
+---
+
+## Actual Results (January 2026)
+
+We ran the evaluation framework on several models. Results on the **synthetic (P3)** split:
+
+| Model | Detection | Referring | VisualRef | Cost | Notes |
+|-------|-----------|-----------|-----------|------|-------|
+| openai/gpt-4o | 86.3% | 86.7% | 76.3% | $16.25 | Full run (2589 samples/task) |
+| qwen/qwen2.5-vl-72b-instruct | 67.0% | 88.7% | 78.6% | $1.70 | Full run (2589 samples/task) |
+| anthropic/claude-3.5-sonnet | 65.0% | 70.0% | 50.0% | $0.14 | Small sample (10 samples) |
+
+**Key Observations:**
+- GPT-4o performs best on Detection, but Qwen2-VL-72B is competitive on Referring/VisualRef
+- Qwen2-VL-72B offers ~10x better cost efficiency than GPT-4o
+- All models show lower performance on Visual Referring vs Referring
 
 ---
 

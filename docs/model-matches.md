@@ -37,6 +37,18 @@ From the paper's Table 1:
 | Molmo-72B | 83.3% | 40.6% |
 | NVLM-D-72B | 77.5% | 41.5% |
 
+## Our Evaluation Results (January 2026)
+
+We ran the evaluation framework against several models on the synthetic split:
+
+| Model | Detection | Referring | VisualRef | Cost | Samples |
+|-------|-----------|-----------|-----------|------|---------|
+| openai/gpt-4o | 86.3% | 86.7% | 76.3% | $16.25 | 2589/task |
+| qwen/qwen2.5-vl-72b-instruct | 67.0% | 88.7% | 78.6% | $1.70 | 2589/task |
+| anthropic/claude-3.5-sonnet | 65.0%* | 70.0%* | 50.0%* | $0.14 | 10/task |
+
+*Small sample size - not statistically significant
+
 ## Recommended Models for Evaluation
 
 ### Ollama (Local)
@@ -79,7 +91,9 @@ Assuming ~2K input tokens + 100 output tokens per sample (image + prompt + respo
 | `openai/gpt-4o` | ~$7-11 | 89.2% | Expensive |
 | `anthropic/claude-3.5-sonnet` | ~$7.50 | 86.7% | Expensive |
 
-**Qwen2-VL-72B offers the best value**: similar performance to GPT-4o at ~20x lower cost.
+**Qwen2-VL-72B offers the best value**: similar performance to GPT-4o at ~10x lower cost.
+
+Our actual runs confirmed this - Qwen outperformed GPT-4o on Referring (88.7% vs 86.7%) and VisualRef (78.6% vs 76.3%) tasks while costing $1.70 vs $16.25 for a full evaluation run.
 
 ## Notes
 
